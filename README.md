@@ -30,5 +30,5 @@ select: function (e) {
 | last-month="{{lastMonth}}" | 按钮，上个月 |string|"◀"|
 | next-month="{{nextMonth}}" | 按钮，下个月 |string|"▶"|
 
-##界面
+## 界面
 ![UI](https://raw.githubusercontent.com/749264345/miniapp-component-calendar/master/ui.png)
