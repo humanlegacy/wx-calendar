@@ -1,0 +1,15 @@
+<!--配置属性
+    default-value="{{value}}"
+    week-text="{{week}}" 
+    last-month="{{lastMonth}}"
+    next-month="{{nextMonth}}"
+-->
+
+
+<Calendar bind:select="select"></Calendar>
+
+<view style='width:90%;margin:0 auto;text-align:center;padding:30rpx 0;border:1rpx dashed #aaa;'>
+    <text>index.wxml</text>
+    <view>Selected:{{selectVal}}</view>
+</view>
+
