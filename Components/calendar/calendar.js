@@ -1,4 +1,3 @@
-// calendar.js
 Component({
     //初始默认为当前日期
     properties: {
@@ -98,7 +97,7 @@ Component({
         },
         //补全0
         zero: function (i) {
-            return String(i).length === 1 ? '0' + i : i;
+            return i >= 10 ? i : '0' + i;
         },
         //获取当月天数
         getThisMonthDays: function (year, month) {
@@ -135,7 +134,9 @@ Component({
             for (let i = 1; i <= emptyDays; i++) {
                 empytGridsBefore.push(preMonthDays - (emptyDays - i));
             }
-            for (let i = 1; i <= (42 - thisMonthDays - emptyDays); i++) {
+
+            var after = (42 - thisMonthDays - emptyDays) - 7 >= 0 ? (42 - thisMonthDays - emptyDays) - 7 : (42 - thisMonthDays - emptyDays);
+            for (let i = 1; i <= after; i++) {
                 empytGridsAfter.push(i);
             }
             this.setData({

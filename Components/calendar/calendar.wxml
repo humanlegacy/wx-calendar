@@ -1,4 +1,4 @@
-<!--calendar.wxml-->
+
 <view class='calendar'>
     <!--显示当前年月日-->
     <view class='calendar-title'>
