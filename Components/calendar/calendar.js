@@ -91,6 +91,7 @@ Component({
             this.setData({
                 year,
                 month,
+                date,
                 title: year + '年' + this.zero(month) + '月'
             })
             this.createDays(year, month);
