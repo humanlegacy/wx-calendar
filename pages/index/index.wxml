@@ -6,9 +6,11 @@
 -->
 
 
-<Calendar bind:select="select"></Calendar>
+<Calendar id="Calendar" bind:select="select"></Calendar>
 
-<view style='width:90%;margin:0 auto;text-align:center;padding:30rpx 0;border:1rpx dashed #aaa;'>
+<view style='width:90%;margin:0 auto;text-align:center;padding:30rpx 20rpx;border:1rpx dashed #aaa;'>
+    <button type='default' bindtap='toggleType'>切换展示效果</button>
+
     <text>index.wxml</text>
     <view>Selected:{{selectVal}}</view>
 </view>

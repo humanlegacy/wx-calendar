@@ -9,10 +9,16 @@ Page({
     },
 
     //组件监听事件
-    select: function (e) {
+    select(e) {
         // console.log(e)
         this.setData({
             selectVal:e.detail
         })
+    },
+
+    toggleType(){
+        this.selectComponent('#Calendar').toggleType();
     }
+
+
 })
