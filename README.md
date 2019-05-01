@@ -29,4 +29,9 @@ select: function (e) {
 | next-month="{{nextMonth}}" | 按钮，下个月 |string|"▶"|
 
 ## 3.界面
+
+### 平铺展示
 ![UI](https://raw.githubusercontent.com/749264345/miniapp-component-calendar/master/ui.png)
+
+### 滚动展示
+![UI](https://raw.githubusercontent.com/749264345/miniapp-component-calendar/master/ui-2.png)
