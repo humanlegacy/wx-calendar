@@ -54,11 +54,8 @@ Component({
             this.setData({
                 toggleType: this.data.toggleType == 'mini' ? 'large' :'mini'
             })
-            // if (this.data.toggleType == 'mini' ){
-                //初始化日历组件UI
-                this.display(this.data.year, this.data.month, this.data.date);
-            // }
-
+            //初始化日历组件UI
+            this.display(this.data.year, this.data.month, this.data.date);
         },
         //滚动模式
         //当年当月当天 滚动到制定日期 否则滚动到当月1日
