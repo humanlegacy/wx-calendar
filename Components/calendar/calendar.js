@@ -36,7 +36,7 @@ Component({
         year: 0,
         month: 0,
         date:0,
-        toggleType:'mini',
+        toggleType:'large',
         scrollLeft:0,
         //常量 用于匹配是否为当天
         YEAR: 0,
