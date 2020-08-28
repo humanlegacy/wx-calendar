@@ -174,7 +174,7 @@ Component({
             this.setData({
                 thisMonthDays
             })
-            console.log('thisMonthDays', thisMonthDays)
+            // console.log('thisMonthDays', thisMonthDays)
         },
         //获取当月空出的天数
         createEmptyGrids: function (year, month) {
@@ -213,6 +213,6 @@ Component({
         //补全0
         zero: function (i) {
             return i >= 10 ? i : '0' + i;
-        },
+        }
     }
 })
