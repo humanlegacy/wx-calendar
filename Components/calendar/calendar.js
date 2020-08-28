@@ -35,9 +35,9 @@ Component({
 
         year: 0,
         month: 0,
-        date:0,
-        toggleType:'large',
-        scrollLeft:0,
+        date: 0,
+        toggleType: 'large',
+        scrollLeft: 0,
         //常量 用于匹配是否为当天
         YEAR: 0,
         MONTH: 0,
@@ -49,29 +49,29 @@ Component({
 
     methods: {
         //切换展示
-        toggleType(){
-            console.log(this.data.toggleType)
+        toggleType() {
             this.setData({
-                toggleType: this.data.toggleType == 'mini' ? 'large' :'mini'
+                toggleType: this.data.toggleType == 'mini' ? 'large' : 'mini'
             })
             //初始化日历组件UI
             this.display(this.data.year, this.data.month, this.data.date);
         },
         //滚动模式
         //当年当月当天 滚动到制定日期 否则滚动到当月1日
-        scrollCalendar(year, month, date){
+        scrollCalendar(year, month, date) {
             console.log(year, month, date)
-            var that = this, scrollLeft = 0;
+            var that = this,
+                scrollLeft = 0;
             wx.getSystemInfo({
                 success(res) {
                     //切换月份时 date为0
-                    if (date == 0 ){
+                    if (date == 0) {
                         scrollLeft = 0;
                         //切换到当年当月 滚动到当日
                         if (year == that.data.YEAR && month == that.data.MONTH) {
                             scrollLeft = that.data.DATE * 45 - res.windowWidth / 2 - 22.5;
                         }
-                    }else{
+                    } else {
                         // 点选具体某一天 滚到到指定日期
                         scrollLeft = date * 45 - res.windowWidth / 2 - 22.5;
                     }
@@ -132,14 +132,14 @@ Component({
                 select: select,
                 year: this.data.year,
                 month: this.data.month,
-                date:date
+                date: date
             });
 
             //发送事件监听
             this.triggerEvent('select', select);
 
             //滚动日历到选中日期
-            this.scrollCalendar(this.data.year, this.data.month,date);
+            this.scrollCalendar(this.data.year, this.data.month, date);
         },
         //上个月
         lastMonth: function () {
@@ -174,28 +174,33 @@ Component({
             this.setData({
                 thisMonthDays
             })
+            console.log('thisMonthDays', thisMonthDays)
         },
         //获取当月空出的天数
         createEmptyGrids: function (year, month) {
-            let week = new Date(Date.UTC(year, month - 1, 1)).getDay(),
-                empytGridsBefore = [],
-                empytGridsAfter = [],
-                emptyDays = (week == 0 ? 7 : week);
-            //当月天数
-            var thisMonthDays = this.getThisMonthDays(year, month);
-            //上月天数
-            var preMonthDays = month - 1 < 0 
-                ? this.getThisMonthDays(year - 1, 12) 
-                : this.getThisMonthDays(year, month - 1);
+                //当月天数
+            let thisMonthDays = this.getThisMonthDays(year, month),
 
-            //空出日期
-            for (let i = 1; i <= emptyDays; i++) {
-                empytGridsBefore.push(preMonthDays - (emptyDays - i));
+                // 求出本月1号是星期几，本月前面空出几天，就是上月的日期
+                // 0（周日） 到 6（周六）
+                before = new Date(Date.UTC(year, month - 1, 1)).getDay(),
+
+                // 后面空出的天数
+                after = 7 - new Date(Date.UTC(year, month - 1, thisMonthDays)).getDay() - 1,
+
+                empytGridsBefore = [],
+                empytGridsAfter = [];
+            //上月天数
+            let preMonthDays = month - 1 < 0 ?
+                this.getThisMonthDays(year - 1, 12) :
+                this.getThisMonthDays(year, month - 1);
+
+            //前面空出日期
+            for (let i = 1; i <= before; i++) {
+                empytGridsBefore.push(preMonthDays - (before - i));
             }
 
-            var after = (42 - thisMonthDays - emptyDays) - 7 >= 0 
-                        ? (42 - thisMonthDays - emptyDays) - 7 
-                        : (42 - thisMonthDays - emptyDays);
+            // 后面空出的日期
             for (let i = 1; i <= after; i++) {
                 empytGridsAfter.push(i);
             }
