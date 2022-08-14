@@ -31,7 +31,7 @@ select: function (e) {
 ## 3.界面
 
 ### 平铺展示
-![UI](https://raw.githubusercontent.com/749264345/miniapp-component-calendar/master/ui-1.png)
+![UI](https://raw.githubusercontent.com/humanlegacy/miniapp-component-calendar/master/ui-1.png)
 
 ### 滚动展示
-![UI](https://raw.githubusercontent.com/749264345/miniapp-component-calendar/master/ui-2.png)
+![UI](https://raw.githubusercontent.com/humanlegacy/miniapp-component-calendar/master/ui-2.png)
